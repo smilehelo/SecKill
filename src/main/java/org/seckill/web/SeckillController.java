@@ -114,6 +114,7 @@ public class SeckillController {
 		return "TestjQuery";
 	}
 	
+	
 	@RequestMapping(value="/{seckill_id}/detailJson",
 					method=RequestMethod.GET,
 					produces="application/json;charset=UTF-8")
@@ -122,13 +123,10 @@ public class SeckillController {
 		if(seckill_id == null){
 			return new SeckillResult<Seckill>(false, "没有ID！");
 		}
-		
-		Seckill seckill = seckillService.getById(seckill_id);
-		
+		Seckill seckill = seckillService.getById(seckill_id);	
 		if(seckill == null){
 			return new SeckillResult<Seckill>(false, "没有此商品！");
-		}
-		
+		}	
 		return new SeckillResult<Seckill>(true, seckill);
 	}
  }
